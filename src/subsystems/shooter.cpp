@@ -8,11 +8,26 @@
 void setShooter(int shooter_power) {
     shooter1 = shooter_power;
     shooter2 = shooter_power;
+    //shooter1.move(shooter_power);
+    //shooter2.move(shooter_power);
 }
 
+bool shoot = false;
 void setShooterMotors() {
-    int shooter  = 127 * controller.get_digital(DIGITAL_X);
-    setShooter(shooter);
-    pros::lcd::set_text(2, std::to_string(controller.get_digital(DIGITAL_X)));
-    
+
+    int shooter = controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X);
+    if (shooter == 1) {
+        if (shoot == true) {
+            shoot = false;
+        }
+        else {
+            shoot = true;
+        }
+    }
+    if (shoot == true) {
+        setShooter(127);
+    }
+    else {
+        setShooter(0);
+    }
 }

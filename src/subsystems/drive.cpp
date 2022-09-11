@@ -1,16 +1,18 @@
 #include "main.h"
+#include "pros/colors.h"
 #include "pros/llemu.hpp"
 #include "pros/misc.h"
 #include <cstdlib>
 #include <iostream>
 
+
 // DRIVER CONTROL FUNCTIONS
 
 void setDrive(int left, int right) {
-    driveLeftBack = left;
-    driveLeftFront = left;
-    driveRightBack = right;
-    driveRightFront = right;
+    driveLeftBack.move(left);
+    driveLeftFront.move(left);
+    driveRightBack.move(right);
+    driveRightFront.move(right);
 }
 
 
@@ -33,10 +35,11 @@ void setDriveMotors() {
     int drive = 0;
     int turn = 0;
 
-    int x = int(controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
-    int y = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
+    int x = abs(controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X));
+    int y = abs(controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y));
 
     // Robot will not move with slight joystick movement
+    /*
     if (abs(y) > deadband || abs(x) > deadband){
     // Makes the bot move exponentially fast
         if (abs(y) > 50){
@@ -57,6 +60,7 @@ void setDriveMotors() {
         drive = 0;
         turn = 0;
     }
+    */
     // Reverses controls for the other direction
     if (y < 0){
         drive = -drive;
@@ -68,7 +72,7 @@ void setDriveMotors() {
     double right = drive + turn;
 
     setDrive(left, right);
-        
+
 }
 
 

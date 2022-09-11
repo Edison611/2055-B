@@ -1,15 +1,22 @@
 #include "pros/llemu.hpp"
 #include "pros/misc.h"
 #include "main.h"
+#include "pros/rtos.hpp"
 
-void setIndexer(int index_power) {
-    indexer = index_power;
-    pros::lcd::set_text(1, "Indexer");
+void setPushIndexer(int power) {
+    indexer = power;
+}
+
+void setRetractIndexer(int power) {
+    indexer = power;
 }
 
 void setIndexerMotors() {
 
-    int indexer_power = 127 * (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A));
-    setIndexer(indexer_power);
+    int push = 127 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_A));
+    setPushIndexer(push);
+    //pros::delay(1000);
+    //setRetractIndexer(-(push));
+
     //indexer_power = 0;
 }

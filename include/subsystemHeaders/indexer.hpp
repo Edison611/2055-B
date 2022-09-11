@@ -1,5 +1,7 @@
 //#include "main.h"
 
-void setIndexer(int index_power);
+void setPushIndexer(int power);
+
+void setRetractIndexer(int power);
 
 void setIndexerMotors();

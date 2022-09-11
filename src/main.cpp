@@ -83,13 +83,13 @@ void opcontrol() {
         setDriveMotors();
 
         // intake
-        //setIntakeMotors();
+        setIntakeMotors();
 
         // indexer
-        //setIndexerMotors();
+        setIndexerMotors();
 
         // shooter
-        //setShooterMotors();
+        setShooterMotors();
 
         pros::delay(10);
     }
