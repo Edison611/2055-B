@@ -79,6 +79,7 @@ void opcontrol(void);
 #include "subsystemHeaders/indexer.hpp"
 #include "subsystemHeaders/shooter.hpp"
 #include "subsystemHeaders/globals.hpp"
+#include "subsystemHeaders/sensors.hpp"
 #include "opcontrol.hpp"
 #include "autonomous.hpp"
 

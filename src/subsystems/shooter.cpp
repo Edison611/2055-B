@@ -14,7 +14,8 @@ void setShooter(int shooter_power) {
 
 bool shoot = false;
 void setShooterMotors() {
-
+    int up = controller.get_digital(pros::E_CONTROLLER_DIGITAL_UP);
+    int down = controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN);
     int shooter = controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X);
     if (shooter == 1) {
         if (shoot == true) {

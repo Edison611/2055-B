@@ -29,7 +29,15 @@ void initialize() {
 
 	pros::lcd::register_btn1_cb(on_center_button);	
 
-	//driveLeftBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	driveLeftBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+    driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+    driveRightBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+    driveRightFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	shooter1.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	shooter2.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	intake.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	indexer.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+    
 	
 }
 
@@ -78,20 +86,7 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-    while(true) {
-        // drive
-        setDriveMotors();
-
-        // intake
-        setIntakeMotors();
-
-        // indexer
-        setIndexerMotors();
-
-        // shooter
-        setShooterMotors();
-
-        pros::delay(10);
-    }
+    my_opcontrol();
 }
+
 

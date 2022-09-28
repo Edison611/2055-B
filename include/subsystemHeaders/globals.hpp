@@ -1,6 +1,12 @@
+#include "pros/adi.hpp"
 #include "pros/misc.h"
 #include "pros/misc.hpp"
 #include "pros/motors.hpp"
+
+// ENCODERS
+extern pros::ADIEncoder encRight;
+extern pros::ADIEncoder encLeft;
+extern pros::ADIEncoder encMiddle;
 
 // MOTORS
 extern pros::Motor intake;
