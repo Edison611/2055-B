@@ -35,8 +35,8 @@ void initialize() {
     driveRightFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	shooter1.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	shooter2.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-	intake.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-	indexer.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	intake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	indexer.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
     
 	
 }

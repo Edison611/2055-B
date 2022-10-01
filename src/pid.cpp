@@ -5,8 +5,8 @@ double averagePos() {
     return average;
 }
 
-void position(int goTo) {
-    double kP = 0.0;
+void PIDSystem(int goTo) {
+    double kP = 0.2;
     double kI = 0.0;
     double kD = 0.0;
 
@@ -28,6 +28,8 @@ void position(int goTo) {
         derivative = error - prevError;
 
         int motorPower = error * kP + derivative * kD + totalError * kI;
+        
+        setDrive(motorPower, motorPower);
 
         prevError = error;
     }

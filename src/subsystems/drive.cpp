@@ -2,6 +2,7 @@
 #include "pros/colors.h"
 #include "pros/llemu.hpp"
 #include "pros/misc.h"
+#include "pros/rtos.hpp"
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -14,8 +15,6 @@ void setDrive(int left, int right) {
     driveLeftFront.move(left);
     driveRightBack.move(right);
     driveRightFront.move(right);
-    pros::lcd::set_text(3, std::to_string(left));
-    pros::lcd::set_text(4, std::to_string(right));
 }
 
 
@@ -66,3 +65,23 @@ void setDriveMotors() {
     setDrive(left, right);
 
 }
+
+double averagePos() {
+    double average = (encRight.get_value() + encLeft.get_value() + encMiddle.get_value())/3.0;
+    return average;
+}
+
+void translate(int units, int voltage) {
+    int direction = abs(units)/units;
+
+    reset_sensors();
+
+    while (fabs(averagePos()) < abs(units)) {
+        setDrive(voltage * direction, voltage * direction);
+        pros::delay(10);
+    }
+    setDrive(-10 * direction, -10 * direction); 
+    pros::delay(100);
+    setDrive(0, 0);
+}
+
