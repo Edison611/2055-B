@@ -1,7 +1,7 @@
 #include "main.h"
 
 double averagePos() {
-    double average = (encRight.get_value() + encLeft.get_value() + encMiddle.get_value())/3;
+    double average = (encRight.get_value() + encLeft.get_value() + encMiddle.get_value())/3.0;
     return average;
 }
 
