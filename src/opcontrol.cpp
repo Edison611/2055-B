@@ -16,7 +16,7 @@ void my_opcontrol() {
         setShooterMotors();
 
         // endgame
-        endgame();
+        //endgame();
 
         //get_temp();
 
