@@ -65,12 +65,7 @@ void setDriveMotors() {
     setDrive(left, right);
 
 }
-
-double averagePos() {
-    double average = (encRight.get_value() + encLeft.get_value() + encMiddle.get_value())/3.0;
-    return average;
-}
-
+/*
 void translate(int units, int voltage) {
     int direction = abs(units)/units;
 
@@ -84,4 +79,5 @@ void translate(int units, int voltage) {
     pros::delay(100);
     setDrive(0, 0);
 }
+*/
 

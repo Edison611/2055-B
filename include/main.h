@@ -79,11 +79,14 @@ void opcontrol(void);
 #include "subsystemHeaders/indexer.hpp"
 #include "subsystemHeaders/shooter.hpp"
 #include "subsystemHeaders/globals.hpp"
-#include "subsystemHeaders/sensors.hpp"
+#include "subsystemHeaders/endgame.hpp"
+#include "auton/autonomous.hpp"
+#include "auton/pid.hpp"
+#include "auton/tracking.hpp"
+#include "auton/sensors.hpp"
 #include "opcontrol.hpp"
-#include "autonomous.hpp"
-
 #include <iostream>
+
 #endif
     
 #endif  // _PROS_MAIN_H_

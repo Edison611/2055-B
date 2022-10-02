@@ -15,6 +15,11 @@ void my_opcontrol() {
         // shooter
         setShooterMotors();
 
+        // endgame
+        endgame();
+
+        //get_temp();
+
         pros::delay(10);
     }
 }

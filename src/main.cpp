@@ -1,5 +1,6 @@
 #include "main.h"
 #include "pros/motors.h"
+#include "pros/rtos.hpp"
 
 /**
  * A callback function for LLEMU's center button.
@@ -27,7 +28,7 @@ void initialize() {
 	pros::lcd::initialize();
 	pros::lcd::set_text(1, "Hello 2055-B!");
 
-	pros::lcd::register_btn1_cb(on_center_button);	
+	//pros::lcd::register_btn1_cb(on_center_button);
 
 	driveLeftBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
     driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
@@ -37,6 +38,10 @@ void initialize() {
 	shooter2.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	intake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	indexer.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+
+	reset_sensors();
+
+	//pros::delay(500);
     
 	
 }

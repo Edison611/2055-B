@@ -3,6 +3,7 @@
 #include "pros/misc.hpp"
 #include "pros/motors.hpp"
 
+
 // ENCODERS
 extern pros::ADIEncoder encRight;
 extern pros::ADIEncoder encLeft;
@@ -20,3 +21,6 @@ extern pros::Motor driveRightFront;
 
 // CONTROLLER
 extern pros::Controller controller;
+
+// PNEUMATICS
+extern pros::ADIDigitalOut piston;
