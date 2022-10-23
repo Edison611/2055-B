@@ -3,12 +3,12 @@
 #include "main.h"
 #include "pros/rtos.hpp"
 
-void setPushIndexer(int power) {
+void setIndexer(int power) {
     indexer.move_voltage(power);
 }
 
 
 void setIndexerMotors() {
     int push = 12000 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_A));
-    setPushIndexer(push);
+    setIndexer(push);
 }
