@@ -1,4 +1,4 @@
-void setPushIndexer(int power);
+void setIndexer(int power);
 
 void setRetractIndexer(int power);
 
