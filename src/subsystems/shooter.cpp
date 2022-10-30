@@ -72,8 +72,8 @@ void setShooterMotors() {
         error = targetRPM - actual1;
         power += gain*error; 
         
-        pros::lcd::set_text(6, "Power: " + std::to_string(power));
-        pros::lcd::set_text(2, "Error: " + std::to_string(error));
+        //pros::lcd::set_text(6, "Power: " + std::to_string(power));
+        //pros::lcd::set_text(2, "Error: " + std::to_string(error));
 
         //if (power > 12000) {
         //    power = 12000;

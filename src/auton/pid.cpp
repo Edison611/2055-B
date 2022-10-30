@@ -1,10 +1,5 @@
 #include "main.h"
 
-double averagePos() {
-    double average = (encRight.get_value() + encLeft.get_value() + encMiddle.get_value())/3.0;
-    return average;
-}
-
 void PIDSystem(int goTo) {
     double kP = 0.2;
     double kI = 0.0;
@@ -22,10 +17,10 @@ void PIDSystem(int goTo) {
         error = averagePos() - goTo;
 
         // Integral 
-        totalError += error;
+        //totalError += error;
 
         // Derivative
-        derivative = error - prevError;
+        //derivative = error - prevError;
 
         int motorPower = error * kP + derivative * kD + totalError * kI;
         

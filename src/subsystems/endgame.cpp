@@ -5,9 +5,9 @@
 
 
 void endgame() {
-    if (pros::E_CONTROLLER_DIGITAL_LEFT && pros::E_CONTROLLER_DIGITAL_L1) {
+    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1) == 1) {
         piston.set_value(true);
-        pros::delay(1000);
+        pros::delay(2000);
         piston.set_value(false);
     }
 }

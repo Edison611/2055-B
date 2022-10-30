@@ -1,4 +1,6 @@
 #include "main.h"
+#include "pros/llemu.hpp"
+#include <string>
 
 
 void my_opcontrol() {
@@ -15,10 +17,11 @@ void my_opcontrol() {
         // shooter
         setShooterMotors();
 
+        // tracking
+        trackPos();
+
         // endgame
         //endgame();
-
-        //get_temp();
 
         pros::delay(10);
     }

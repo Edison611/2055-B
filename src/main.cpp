@@ -1,4 +1,5 @@
 #include "main.h"
+#include "pros/llemu.hpp"
 #include "pros/motors.h"
 #include "pros/rtos.hpp"
 
@@ -26,7 +27,7 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
-	pros::lcd::set_text(1, "Hello 2055-B!");
+	//pros::lcd::set_text(1, "Hello 2055-B!");
 
 	//pros::lcd::register_btn1_cb(on_center_button);
 
@@ -39,10 +40,11 @@ void initialize() {
 	intake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	indexer.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
-	reset_sensors();
+	//pros::Task tracking_task(trackPos);
+	//reset_sensors();
 
-	//pros::delay(500);
-    
+	pros::delay(500);
+    autonomous();
 	
 }
 
@@ -75,8 +77,11 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
-
+void autonomous() {
+	redRight();
+	//redLeft();
+	//test();
+}
 /**
  * Runs the operator control code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
