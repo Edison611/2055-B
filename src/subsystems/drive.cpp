@@ -19,53 +19,99 @@ void setDrive(int left, int right) {
 
 
 void setDriveMotors() {
-    
+
     int deadband = 5;
 
+    // Receive input from the controller
     double drive = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
     double turn = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X);
 
-    pros::lcd::set_text(5, "drive: " + std::to_string(drive));
-    pros::lcd::set_text(6, "turn: " + std::to_string(turn));
+    double driveR = -(controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y));
+    double turnR = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
 
-    // Robot will not move with slight joystick movement
-    /*
-    if (abs(drive) > deadband || abs(turn) > deadband){
-    // Makes the bot move exponentially fast
-        if (abs(drive) > 50){
-            drive = (10/(1+exp(-(abs(drive)/10) - 5))) * 1.2 - 0.5;
-        }
-        else {
-            drive = (5*pow((1/5)*(abs(drive-5))/10, 3.0)) * 1.2 ;
-        }
-        if (abs(turn) > 50){
-            drive = (10/(1+exp(-(abs(turn)/10) - 5))) * 1.2 - 0.5;
-        }
-        else {
-            drive = (5*pow((1/5)*(abs(turn-5))/10, 3.0)) * 1.2 ;
-        }
-    }
-  
-    else {
+
+    // Deadband
+    if (fabs(drive) < 5) {
         drive = 0;
+    }
+
+    if (fabs(turn) < 5) {
         turn = 0;
     }
-    
-    // Reverses controls for the other direction
-    if (drive < 0){
-        drive = -drive;
-    }
-    if (turn < 0){
-        turn = -turn;
-    }
-    */
-    double left = drive + turn;
-    double right = drive - turn;
+
+    double left = (drive + turn) + (driveR + turnR);
+    double right = (drive - turn) + (driveR - turnR);
 
     setDrive(left, right);
 
 }
+
+bool enable = true;
+ 
+
 /*
+void drivePID(int units) {
+    while (enable) {
+        double kP = 0.07;
+        int P = units - averagePos();
+        double motorPower = P * kP;
+        if (motorPower > 127) {
+            motorPower = 127;
+        }
+        if (P < 10) {
+            enable = false;
+        }
+        setDrive(-motorPower, -motorPower);
+
+    }
+}
+*/
+
+void turnPID(int right, int left) {
+    int greater;
+    bool rev = false;
+    if (right < 0 && left < 0) {
+        rev = true;
+    }
+    while (enable) {
+        int rightError = right - encRight.get_value();
+        int leftError = left - encLeft.get_value();
+
+        double kP = 0.08;
+        double motorPowerR = rightError * kP;
+        double motorPowerL = leftError * kP;
+        /*
+        if (greater > leftError) {
+            greater = rightError;
+        }
+        else {
+            greater = leftError;
+        }
+        */
+
+        if (motorPowerR > 127) {
+            motorPowerR = 127;
+        }
+        if (motorPowerL > 127) {
+            motorPowerL = 127;
+        }
+        if (rightError < 20) {
+            reset_sensors();
+            enable = false;
+        }
+
+        if (rev == true) {
+            setDrive(motorPowerL, motorPowerR);
+        }
+        else {
+            setDrive(-motorPowerL, -motorPowerR);
+        }
+    }
+    setDrive(0,0);
+}
+
+
+
 void translate(int units, int voltage) {
     int direction = abs(units)/units;
 
@@ -75,9 +121,13 @@ void translate(int units, int voltage) {
         setDrive(voltage * direction, voltage * direction);
         pros::delay(10);
     }
+
     setDrive(-10 * direction, -10 * direction); 
-    pros::delay(100);
+
+    pros::delay(50);
+
     setDrive(0, 0);
 }
-*/
+
+
 
