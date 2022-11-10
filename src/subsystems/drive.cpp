@@ -46,7 +46,7 @@ void setDriveMotors() {
 
 }
 
-bool enable = true;
+
  
 
 /*
@@ -68,26 +68,28 @@ void drivePID(int units) {
 */
 
 void turnPID(int right, int left) {
+    bool enable = true;
     int greater;
     bool rev = false;
+
     if (right < 0 && left < 0) {
         rev = true;
     }
+
     while (enable) {
         int rightError = right - encRight.get_value();
         int leftError = left - encLeft.get_value();
 
-        double kP = 0.08;
+        double kP = 0.09;
         double motorPowerR = rightError * kP;
         double motorPowerL = leftError * kP;
-        /*
-        if (greater > leftError) {
+        
+        if (greater < leftError) {
             greater = rightError;
         }
         else {
             greater = leftError;
         }
-        */
 
         if (motorPowerR > 127) {
             motorPowerR = 127;
@@ -95,7 +97,8 @@ void turnPID(int right, int left) {
         if (motorPowerL > 127) {
             motorPowerL = 127;
         }
-        if (rightError < 20) {
+
+        if (abs(greater) < 20) {
             reset_sensors();
             enable = false;
         }

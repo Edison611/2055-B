@@ -40,11 +40,10 @@ void initialize() {
 	intake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	indexer.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
-	//pros::Task tracking_task(trackPos);
+	pros::Task tracking_task(trackPos);
 	//reset_sensors();
 
 	pros::delay(500);
-    autonomous();
 	
 }
 
@@ -78,8 +77,8 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-	redRight();
 	//redLeft();
+	redRight();
 	//test();
 }
 /**
