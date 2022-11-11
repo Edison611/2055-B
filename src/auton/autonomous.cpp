@@ -74,6 +74,7 @@ void redLeft() {
     setDrive(0, 0);
     setDrive(0, 20);
     pros::delay(200);
+    setDrive(0, 0);
 
     // Two Shots
     setShooter(9500);
