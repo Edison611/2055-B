@@ -6,6 +6,6 @@ void setIntake(int intaker_power) {
 }
 
 void setIntakeMotors() {
-    int intake_power = 110 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1) - controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2));
+    int intake_power = 127 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1) - controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2));
     setIntake(intake_power);    
 }

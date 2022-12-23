@@ -6,7 +6,7 @@ void setDriveMotors();
 
 void drivePID(int units);
 
-void turnPID(int right, int left);
+void driveCoord(int right, int left);
 
-void translate(int units, int voltage);
+//void translate(int units, int voltage);
     

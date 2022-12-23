@@ -4,7 +4,7 @@
 
 void redRight() {
     // First Turn
-    turnPID(640, 500);
+    driveCoord(640, 500);
 
     // Two Shots
     setShooter(8750);
@@ -83,4 +83,8 @@ void redLeft() {
     pros::delay(4000);
     setShoot();
     setShooter(0);
+}
+
+void test() {
+    
 }

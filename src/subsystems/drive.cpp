@@ -13,7 +13,10 @@
 void setDrive(int left, int right) {
     driveLeftBack.move(left);
     driveLeftFront.move(left);
+    driveLeftMiddle.move(left);
+    
     driveRightBack.move(right);
+    driveRightMiddle.move(right);
     driveRightFront.move(right);
 }
 
@@ -67,7 +70,7 @@ void drivePID(int units) {
 }
 */
 
-void turnPID(int right, int left) {
+void driveCoord(int right, int left) {
     bool enable = true;
     int greater;
     bool rev = false;
@@ -76,6 +79,8 @@ void turnPID(int right, int left) {
         rev = true;
     }
 
+    right = abs(right);
+    left = abs(left);
     while (enable) {
         int rightError = right - encRight.get_value();
         int leftError = left - encLeft.get_value();
@@ -114,7 +119,7 @@ void turnPID(int right, int left) {
 }
 
 
-
+/*
 void translate(int units, int voltage) {
     int direction = abs(units)/units;
 
@@ -131,6 +136,6 @@ void translate(int units, int voltage) {
 
     setDrive(0, 0);
 }
-
+*/
 
 

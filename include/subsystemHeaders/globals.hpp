@@ -15,8 +15,11 @@ extern pros::Motor indexer;
 extern pros::Motor shooter1;
 extern pros::Motor shooter2;
 extern pros::Motor driveLeftBack;
-extern pros::Motor driveRightBack;
+extern pros::Motor driveLeftMiddle;
 extern pros::Motor driveLeftFront;
+
+extern pros::Motor driveRightBack;
+extern pros::Motor driveRightMiddle;
 extern pros::Motor driveRightFront;
 
 // CONTROLLER

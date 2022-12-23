@@ -31,17 +31,21 @@ void initialize() {
 
 	//pros::lcd::register_btn1_cb(on_center_button);
 
+	// Drive Motors
 	driveLeftBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
     driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
     driveRightBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
     driveRightFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	driveRightMiddle.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	driveLeftMiddle.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+
+	// Subsystem Motors
 	shooter1.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	shooter2.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	intake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	indexer.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
 	pros::Task tracking_task(trackPos);
-	//reset_sensors();
 
 	pros::delay(500);
 	
@@ -77,9 +81,9 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-	redLeft();
+	//redLeft();
 	//redRight();
-	//test();
+	test();
 }
 /**
  * Runs the operator control code. This function will be started in its own task
