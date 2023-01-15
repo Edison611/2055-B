@@ -12,7 +12,7 @@ void setIndexer(int power) {
 
 void setIndexerMotors() {
     int push = 12000 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_A));
-    pros::lcd::set_text(6, std::to_string(indexer.get_encoder_units()));
+    //pros::lcd::set_text(6, std::to_string(indexer.get_encoder_units()));
     setIndexer(push);
 }
 

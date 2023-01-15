@@ -1,12 +1,9 @@
 //#include "main.h"
 
-void setDrive(int left, int right);
+void setDrive(double left, double right);
 
 void setDriveMotors();
 
-void drivePID(int units);
-
-void driveCoord(int right, int left);
 
 //void translate(int units, int voltage);
     

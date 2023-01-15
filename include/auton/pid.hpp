@@ -1,2 +1,5 @@
+void turnCalc(int angle);
 
-void PID(int goTo);
+void driveCalc(double distance);
+
+void PID(int left, int right);

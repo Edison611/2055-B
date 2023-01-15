@@ -73,7 +73,7 @@ void opcontrol(void);
 
 #ifdef __cplusplus
 
-
+#include "subsystemHeaders/catapult.hpp"
 #include "subsystemHeaders/drive.hpp"
 #include "subsystemHeaders/intake.hpp"
 #include "subsystemHeaders/indexer.hpp"

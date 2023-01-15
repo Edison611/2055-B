@@ -3,19 +3,16 @@
 #include "pros/rtos.hpp"
 
 void redRight() {
-    // First Turn
-    driveCoord(640, 500);
-
-    // Two Shots
-    setShooter(8750);
-    pros::delay(4000);
-    setShoot();
-    //pros::delay(100);
-    setShooter(8700);
-    pros::delay(2000);
-    setShoot();
-    setShooter(0);
+    driveCalc(11.775);
     pros::delay(100);
+    turnCalc(90);
+    pros::delay(100);
+    //driveCalc(11.775);
+    pros::delay(100);
+    //turnCalc(180);
+
+    // First Turn
+    //driveCoord(640, 500);
 
     // Roller
     // Turn
@@ -86,5 +83,9 @@ void redLeft() {
 }
 
 void test() {
-    
+    //setDrive(10, -10);
+    //driveCoord(640, 640);
+    //driveCalc(11.775);
+    //setDrive(11, 11);
+    //turnCalc(90);
 }

@@ -59,8 +59,8 @@ void setShooterMotors() {
     }
 
     
-    controller.set_text(1, 1, "Flywheel: " + std::to_string(power));
-    pros::lcd::set_text(1, "Actual: " + std::to_string(shooter1.get_actual_velocity()));
+    //controller.set_text(1, 1, "Flywheel: " + std::to_string(power));
+    //pros::lcd::set_text(1, "Actual: " + std::to_string(shooter1.get_actual_velocity()));
     //pros::lcd::set_text(2, "Actual: " + std::to_string(shooter2.get_actual_velocity()));
 
 

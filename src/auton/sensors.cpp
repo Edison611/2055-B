@@ -1,17 +1,17 @@
 #include "main.h"
 
 void reset_sensors() {
-    encLeft.reset();
-    encRight.reset();
-    //encMiddle.reset();
+    driveLeftBack.tare_position();
+    driveRightBack.tare_position();
+    driveLeftFront.tare_position();
+    driveRightFront.tare_position();
+    encLeft.reset_position();
+    encRight.reset_position();
+    encMiddle.reset();
 }
 
-double averagePos() {
-    double average = (encRight.get_value() + encLeft.get_value())/2.0;
-    return average;
-}
+//double averagePos() {
+    //double average = (encRight.get_value() + encLeft.get_value())/2.0;
+    //return average;
+//}
 
-class MotorPos {
-    public:
-        int a = 1;
-};
